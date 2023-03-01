@@ -1,9 +1,13 @@
-
-one = int(input("Enter the value of b: "))
-diff = int(input("Enter the value of q: "))
-denominator = int(input("Enter the value of n: "))
-last_member = int(input("Enter the value of g: "))
-
-for s in:
-    s = (one*(last_member**denominator - 1))/(diff-1)
-    print(s)
+one = int(input("Введите первый член: "))
+diff = int(input("Введите разность прогрессии: "))
+denominator = int(input("Введите знаменатель прогрессии: "))
+last_member = int(input("Введите номер последнего члена: "))
+n=last_member-one
+while denominator!=1:
+ s1 = (one*(denominator**n - 1))/(denominator-1)
+ print(f"геометрическая прогрессия {s1} ")
+ break
+while diff:
+ s2 = (((one+last_member)/2)*n)
+ print(f"арифметическая прогрессия {s2} ")
+ break
