@@ -1,0 +1,9 @@
+
+one = int(input("Enter the value of b: "))
+diff = int(input("Enter the value of q: "))
+denominator = int(input("Enter the value of n: "))
+last_member = int(input("Enter the value of g: "))
+
+for s in:
+    s = (one*(last_member**denominator - 1))/(diff-1)
+    print(s)
