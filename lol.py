@@ -10,9 +10,9 @@ elif d == 0:
     x = -b / (a * 2)
     print(f"число {x}= корень")
 elif d>0:
-    x1 = - b + dis / a * 2
+    x1 = (- b + dis) / (a * 2)
     print(f"число {x1} = 1 корень")
-    x2 = - b - dis / a * 2
+    x2 = (- b - dis) / (a * 2)
     print(f"число {x2}= 2 корень ")
 
 
