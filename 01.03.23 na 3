@@ -7,8 +7,7 @@ n = last_member-one
 if choice == 1:
     an = one + ((last_member - 1) * diff)
     s1 = (one + an) * last_member / 2
-    bn = one * (last_member * denominator)
-    s2 = bn - 1 * denominator
+    s2 = (one*((denominator**n)-1))/denominator-1
     print(f"{s1} - сумма Aрифмитической прогрессии", f" {s2} - сумма Геометрической прогрессии, ")
 if choice == 2:
     for i in range(last_member):
