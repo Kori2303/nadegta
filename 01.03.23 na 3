@@ -1,20 +1,22 @@
-one = int(input("Введите номер первого члена: "))
-diff = int(input("Введите  разность прогрессии: "))
-denominator = int(input("Введите знаменатель прогрессии: "))
-last_member = int(input("Введите номер последнего члена: "))
-choice = int(input("Введите способ решения: (формула - 1) (цикл - 2): "))
-n = last_member-one
-if choice == 1:
-    an = one + ((last_member - 1) * diff)
-    s1 = (one + an) * last_member / 2
-    s2 = (one*((denominator**n)-1))/denominator-1
-    print(f"{s1} - сумма Aрифмитической прогрессии", f" {s2} - сумма Геометрической прогрессии, ")
-if choice == 2:
-    for i in range(last_member):
-        one = i + one
-        diff = one+diff
-    print(diff)
-    for i in range(last_member):
-        one = i * one
-        denominator = one + denominator
-    print(one)
+a_1 = int(input("введите первый член для арифмитической прогрессии: "))
+b_1 = int(input("введите первый член для геометрической прогрессии: "))
+q = int(input("введите знаменатель: "))
+d = int(input("введите разность: "))
+last_member = int(input("введите последний член: "))
+n_a = last_member-a_1
+n_b = last_member-b_1
+print('через формулу')
+s_a = ((2*a_1+d*(n_a-1))/2)*n_a
+print(f"{s_a} - арифмитическая прогрессия")
+s_b = (b_1*((q**n_b)-1))/(q-1)
+print(f"{s_b} - геометрическая прогрессия")
+print('через цикл')
+for i in range(last_member):
+    a_n = last_member+d
+    print(f"{a_n} - арифмитическая прогрессия")
+    break
+for i in range(last_member):
+    b_n = last_member * q
+    print(f"{b_n} - геометрическая прогрессия")
+    print('через цикл')
+    break
