@@ -18,5 +18,4 @@ for i in range(last_member):
 for i in range(last_member):
     b_n = last_member * q
     print(f"{b_n} - геометрическая прогрессия")
-    print('через цикл')
     break
