@@ -1,7 +1,5 @@
-def print_task():
-    print("task")
-
-def get_the_root(arrayp):
+#определение функции
+def get_the_root():
     a = int(input("введите число: "))
     b = int(input("Введите число: "))
     c = int(input("Введите число: "))
@@ -14,23 +12,26 @@ def get_the_root(arrayp):
         x = -b / (a * 2)
         print(f"число {x}= корень")
     elif d > 0:
-        x1= (- b + dis) / (a * 2)
+        x1 = (- b + dis) / (a * 2)
         print(f"число {x1} = 1 корень")
         x2 = (- b - dis) / (a * 2)
         print(f"число {x2}= 2 корень ")
-    return(x, x1, x2)
 
-def find_coordinates(*elems):
+get_the_root()
+
+
+def find_coordinates():
     x_min = int(input("Min. x:"))
+    # вводим минимальный х
     x_max = int(input("Max. x:"))
-    a = int(input("a:"))
-    b = int(input("b:"))
-    c = int(input("c:"))
+    # вводим максимальный х
+    a = int(input("a:"))  # вводим а
+    b = int(input("b:"))  # вводим b
+    c = int(input("c:"))  # вводим с
     for i in range(x_min, x_max + 1):
         y = a * (i) ** 2 + b * (i) + c
+        # I кол-во повторений
         print("Coordinates x =", i, ",y = ", y)
-print(get_the_root)
-print(find_coordinates)
+        # координаты х, у
 
-
-
+find_coordinates()
