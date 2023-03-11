@@ -35,3 +35,18 @@ def find_coordinates():
         # координаты х, у
 
 find_coordinates()
+
+
+import test
+
+choice = input("выберите пункт\t")
+
+match choice:
+    case "1":
+        print("корень")
+        test.get_the_root()
+    case "2":
+        print("координаты")
+        test.find_coordinates()
+    case _:
+        print("такого действия не существует")
