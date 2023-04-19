@@ -129,3 +129,43 @@ class Rectangle:
      
     def is_empty(self): 
         return len(self.items) == 0
+
+ #5.2 A
+
+class Point:
+    def __init__(self, x=0, y=0):
+        self.x = x
+        self.y = y
+
+    def move (self, dx, dy):
+        self.x += dx
+        self.y += dy
+
+    def length(self, point):
+        distance = ((self.x - point.x)** 2 + (self.y - point.y)**2)
+        return round(distance, 2)
+
+class PatchedPoint(Point):
+    def __init__(self, *args):
+        if len(args) == 0:
+            super().__init__(0, 0)
+        elif len(args) == 1:
+            super().__init__(args[0][0], args[0][1])
+        elif len(args) == 2:
+            super().__init__(*args)
+            
+#5.1 J
+
+class Stack:
+    def __init__(self):
+        self.items = []
+
+    def push(self, item):
+        self.items.append(item)
+
+    def pop(self):
+        return self.items.pop()
+
+    def is_empty(self):
+        return len(self.items) == 0
+    
