@@ -142,7 +142,7 @@ class Point:
         self.y += dy
 
     def length(self, point):
-        distance = ((self.x - point.x)** 2 + (self.y - point.y)**2)
+        distance = ((self.x - point.x)** 2 + (self.y - point.y)**2) **0.5
         return round(distance, 2)
 
 class PatchedPoint(Point):
