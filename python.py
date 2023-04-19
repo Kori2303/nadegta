@@ -199,4 +199,100 @@ class PatchedPoint(Point):
     def __repr__(self):
         return f'PatchedPoint({self.x}, {self.y})'
     
-    
+#5.2 F
+
+class Fraction:
+    def __init__(self, numerator, denominator=1):
+        if type(numerator) == str:
+            numerator, denominator = map(int, numerator.split('/'))
+        if denominator < 0:
+            numerator = -numerator
+            denominator = -denominator
+        gcd = self._gcd(abs(numerator), abs(denominator))
+        self._numerator = numerator // gcd
+        self._denominator = denominator // gcd
+
+    def _gcd(self, a, b):
+        if b == 0:
+            return a
+        return self._gcd(b, a % b)
+
+    def numerator(self, number=None):
+        if number is None:
+            return self._numerator
+        if number < 0:
+            self._numerator = -abs(number)
+        else:
+            self._numerator = abs(number)
+        gcd = self._gcd(self._numerator, self._denominator)
+        self._numerator = self._numerator // gcd
+        self._denominator = self._denominator // gcd
+        return self._numerator
+
+    def denominator(self, number=None):
+        if number is None:
+            return self._denominator
+        if number == 0:
+            raise ValueError("Denominator can't be equal to zero.")
+        if number < 0:
+            self._denominator = -abs(number)
+        else:
+            self._denominator = abs(number)
+        gcd = self._gcd(self._numerator, self._denominator)
+        self._numerator = self._numerator // gcd
+        self._denominator = self._denominator // gcd
+        return self._denominator
+
+    def __str__(self):
+        if self._denominator == 1:
+            return f"{self._numerator}"
+        else:
+            return f"{self._numerator}/{self._denominator}"
+
+    def __repr__(self):
+        return f"Fraction({self._numerator}, {self._denominator})"
+
+    def __neg__(self):
+        return Fraction(-self._numerator, self._denominator)
+
+    def __add__(self, other):
+        if isinstance(other, int):
+            other = Fraction(other)
+        elif not isinstance(other, Fraction):
+            raise TypeError("Unsupported operand type(s) for +: 'Fraction' and '{}'".format(type(other).__name__))
+        new_numerator = self._numerator * other._denominator + self._denominator * other._numerator
+        new_denominator = self._denominator * other._denominator
+        return Fraction(new_numerator, new_denominator)
+
+    def __sub__(self, other):
+        if isinstance(other, int):
+            other = Fraction(other)
+        elif not isinstance(other, Fraction):
+            raise TypeError("Unsupported operand type(s) for -: 'Fraction' and '{}'".format(type(other).__name__))
+        new_numerator = self._numerator * other._denominator - self._denominator * other._numerator
+        new_denominator = self._denominator * other._denominator
+        return Fraction(new_numerator, new_denominator)
+
+    def __iadd__(self, other):
+        if isinstance(other, int):
+            other = Fraction(other)
+        elif not isinstance(other, Fraction):
+            raise TypeError("Unsupported operand type(s) for +=: 'Fraction' and '{}'".format(type(other).__name__))
+        new_numerator = self._numerator * other._denominator + self._denominator * other._numerator
+        new_denominator = self._denominator * other._denominator
+        gcd = self._gcd(abs(new_numerator), abs(new_denominator))
+        self._numerator = new_numerator // gcd
+        self._denominator = new_denominator // gcd
+        return self
+
+    def __isub__(self, other):
+        if isinstance(other, int):
+            other = Fraction(other)
+        elif not isinstance(other, Fraction):
+            raise TypeError("Unsupported operand type(s) for -=: 'Fraction' and '{}'".format(type(other).__name__))
+        new_numerator = self._numerator * other._denominator - self._denominator * other._numerator
+        new_denominator = self._denominator * other._denominator
+        gcd = self._gcd(abs(new_numerator), abs(new_denominator))
+        self._numerator = new_numerator // gcd
+        self._denominator = new_denominator // gcd
+        return self
